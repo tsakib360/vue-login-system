@@ -13,6 +13,19 @@ export default {
   name: 'Home',
   components: {
     HelloWorld
+  },
+
+  created() {
+    this.$axios.get('http://localhost:8000/api/user')
+            .then(res=>{
+                    console.log(res.data)
+                })
+            .catch(e => {
+                if (e.response.status === 401) {
+                    this.isLoading = false;
+                    this.errors = e.response.data.errors;
+                }
+            });
   }
 }
 </script>

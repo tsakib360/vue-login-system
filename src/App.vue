@@ -2,11 +2,33 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <a href="javascript:void(0)" @click="logout">Logout</a>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {
+  methods: {
+        logout() {
+            this.$axios.post('http://localhost:8000/api/logout')
+            .then(res=>{
+                    localStorage.removeItem("access_token");
+                    localStorage.removeItem("user");
+                    localStorage.removeItem("role");
+                    localStorage.removeItem("permission");
+                    console.log(res);
+                    this.$router.push({ path: '/login' });
+                })
+            .catch(e=>{
+              console.log(e);
+            });
+        }
+    },
+}
+</script>
 
 <style>
 #app {
