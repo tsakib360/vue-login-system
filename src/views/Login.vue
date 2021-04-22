@@ -26,7 +26,7 @@ export default {
 
   methods: {
       login() {
-          this.form.post('http://localhost:8000/api/login')
+          this.form.post('login')
             .then(res=>{
                     localStorage.setItem("access_token", res.data.token);
                     localStorage.setItem('user', JSON.stringify(res.data.user));

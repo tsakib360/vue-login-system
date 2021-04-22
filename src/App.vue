@@ -13,7 +13,7 @@
 export default {
   methods: {
         logout() {
-            this.$axios.post('http://localhost:8000/api/logout')
+            this.$axios.post('logout')
             .then(res=>{
                     localStorage.removeItem("access_token");
                     localStorage.removeItem("user");

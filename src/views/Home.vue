@@ -16,7 +16,7 @@ export default {
   },
 
   created() {
-    this.$axios.get('http://localhost:8000/api/user')
+    this.$axios.get('user/all')
             .then(res=>{
                     console.log(res.data)
                 })

@@ -8,6 +8,7 @@ import axios from 'axios'
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 axios.defaults.headers.common['Authorization'] = 'Bearer '+localStorage.getItem('access_token');
+axios.defaults.baseURL = 'http://localhost:8101/';
 
 Vue.prototype.$axios = axios
 
