@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>Hello {{user.first_name}} {{user.last_name}}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
       check out the
@@ -36,6 +36,16 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+
+  data() {
+    return {
+      user: {},
+    }
+  },
+
+  created() {
+      this.user = JSON.parse(localStorage.getItem('user'));
   }
 }
 </script>

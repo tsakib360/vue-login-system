@@ -60,7 +60,7 @@ router.beforeEach((to, from, next) => {
 
   else next()
 
-  document.title = to.meta.title + ' | ' + process.env.MIX_APP_NAME;
+  document.title = to.meta.title + ' | Duckpeon PMS';
 
 });
 
